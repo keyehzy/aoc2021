@@ -15,7 +15,7 @@
     (0 0 0 0 0 0 0 0 1)
     (1 0 0 0 0 0 0 0 0)))
 
-(defparameter *N* 256)
+(defconstant +N+ 256)
 
 (defun count-pop (list)
   (loop for i from 0 below 9
@@ -34,7 +34,7 @@
 (defun solve ()
   (let ((vec (count-pop (read-input "input.txt")))
 	(new_vec '()))
-    (loop for i from 0 below *N*
+    (loop for i below +N+
 	  do (setf new_vec (matrix-*-vector *M* vec))
 	     (setf vec new_vec))
     (reduce #'+ new_vec)))
